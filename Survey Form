@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application for Martha's Best Firend Position</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <h1 id="title">Application for Martha's Best Firend Position</h1>
+    <p id="description">You will be the luckiest person ever if you get selected after filling this form</p>
+
+    <form id="survey-form">
+
+      <label id="name-label"><strong>Name (Required) <input required id="name" type="text" placeholder="What's your name?"/> </label>
+      <label id="phone-label">Number (Optional) <input id="phone" type="number" placeholder="What's your number?"/> </label>
+      <label id="email-label">Email (Required) <input required id="email" type="email" placeholder="What's your email?"/></label>
+      <label id="number-label">Time you knew Martha <input id="number" pattern="[0-9]" type="number"min="10"max="100" placeholder="Years"/></label>
+
+      <label> Why do you like Martha?</label>
+        <select class="drop-down" id="dropdown">
+          <option value="">Select one option please </option>
+          <option value="1">Martha is Funny </option>
+          <option value="2">Martha is Sweet</option>
+          <option value="3">Martha is a Great Planner</option>
+          <option value="4">Martha is Simply the Best</option>
+          <option value="5">Too many reasons to count</option>
+        </select>
+
+      <label> How often do you plan to see Martha? </label>
+        <label><input type="radio" name="Hanging-out" value="1/7"> Once a week</label>
+        <label><input type="radio" name="Hanging-out" value="1/30"> Once a month</label>
+        <label><input type="radio" name="Hanging-out" value="2/7"> On the weekends</label>
+        <label><input type="radio" name="Hanging-out" value="5/7"> On the weekdays</label>
+        <label><input type="radio" name="Hanging-out" value="Them"> Whenever the hell I want</label>
+        <label><input type="radio" name="Hanging-out" value="Martha"> Whenever Martha pleases</label>
+
+      <label> What would you like to do with Martha when you hang out? </label>
+        <label for="park"> <input type="checkbox" value="park"> Go to the park</label>
+        <label for="beach"><input type="checkbox" value="beach"> Go to the beach</label>
+        <label for="movies"><input type="checkbox" value="movies"> Go to the movies</label>
+        <label for="roadtrip"><input type="checkbox" value="roadtrip"> Go on a roadtrip</label>
+        <label for="home"><input type="checkbox" value="home"> Chill at home</label>
+      
+      <label>Tell us why Martha should choose you out of all people who want to be her best friend <textarea rows="5" cols="50"></textarea>
+      </label>
+      
+      <button type="submit" id="submit">Submit</button>
+      </strong>
+  </body>
+</html>
