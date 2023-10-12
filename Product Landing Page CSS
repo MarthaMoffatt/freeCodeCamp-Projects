@@ -1,0 +1,114 @@
+*{
+  maring:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+main{
+  font-family:Lato, sans-serif;
+}
+
+img{
+  width:60vw;
+  height:100%;
+  max-width:300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 20px;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+header{
+   position: fixed;
+    top: 0;
+    min-height: 75px;
+    padding: 0px 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav{
+  display:block;
+  font-weight: 400;
+}
+
+nav ul{
+  list-style-type:none;
+  width:35vw;
+  display:flex;
+  flex-direction:row;
+  justify-content:space-around;
+}
+
+ul{display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;}
+
+li{
+  display:list-item;
+  text-align:-webkit-match-parent;
+}
+
+nav{
+  font-weight:400;
+}
+
+h2 {
+    margin-bottom: 20px;
+    word-wrap: break-word;
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    
+}
+
+.Get-Started{
+      display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 200px;
+    margin-top: 50px;
+}
+
+form {
+    display: block;
+    margin-top: 0em;
+}
+
+.Trombone{
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 500px;
+    margin: 10px;
+    border: 1px solid #000;
+    border-radius: 3px;
+}
+
+#Pricing {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+@media only screen and (max-width:500px){
+  .Trombone{
+  display: flex;
+  flex-direction:column;
+  flex-wrap:wrap;}}
