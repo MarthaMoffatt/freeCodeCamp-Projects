@@ -1,0 +1,164 @@
+import React from 'https://esm.sh/react@18.2.0'
+import ReactDOM from 'https://esm.sh/react-dom@18.2.0'
+
+class Clock extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      breakLen: 5,
+      sessionLen: 25,
+      minutes: 25,
+      seconds: 0,
+      timerLabel: 'Session',
+      interval: null,
+      isRunning: false,
+    };
+    this.reset = this.reset.bind(this);
+    this.start = this.start.bind(this);
+    this.stop = this.stop.bind(this);
+    this.breakInc = this.breakInc.bind(this);
+    this.breakDec = this.breakDec.bind(this);
+    this.sessionInc = this.sessionInc.bind(this);
+    this.sessionDec = this.sessionDec.bind(this);
+    this.timeLeft = this.timeLeft.bind(this);
+  }
+  
+  reset(){
+    const audio = document.getElementById('beep');
+    audio.pause();
+    audio.currentTime=0;
+    clearInterval(this.state.interval);
+    this.setState({
+      breakLen: 5,
+      sessionLen:25,
+      minutes:25,
+      seconds:0,
+      timerLabel:'Session',
+      interval:null,
+      isRunning:false
+    })
+  }
+  
+    start(){
+    if (this.state.minutes === 0 && this.state.seconds === 0)
+      return this.setState({
+        isRunning: true,
+        minutes: this.state.sessionLen,
+        seconds: 0,
+        interval: setInterval(this.timeLeft, 1000),
+      });
+    this.setState({
+      isRunning: true,
+      interval: setInterval(this.timeLeft, 1000),
+    });
+  }
+  
+  stop(){
+    clearInterval(this.state.interval);
+    this.setState({
+      isRunning:false,
+      interval: null,
+    });
+  }
+  
+ breakDec() {
+    if (this.state.isRunning || this.state.breakLen <= 1) return;
+    this.setState({
+      breakLen: this.state.breakLen - 1,
+      minutes: this.state.sessionLen
+    });
+  }
+  
+  breakInc() {
+    if (this.state.isRunning || this.state.breakLen >= 60) return;
+    this.setState({
+      breakLen: this.state.breakLen + 1,
+      minutes: this.state.sessionLen
+    });
+  }
+  
+  sessionDec() {
+    if (this.state.isRunning || this.state.sessionLen <= 1) return;
+    this.setState({
+      sessionLen: this.state.sessionLen - 1,
+      minutes: this.state.sessionLen - 1
+    });
+  }
+  
+  sessionInc() {
+    if (this.state.isRunning || this.state.sessionLen >= 60) return;
+    this.setState({
+      sessionLen: this.state.sessionLen + 1,
+      minutes: this.state.sessionLen + 1
+    });
+  }
+  
+  timeLeft() {
+  if (this.state.minutes === 0 && this.state.seconds === 0) {
+    const audio = document.getElementById('beep');
+      audio.currentTime = 0;
+      audio.play();
+      
+    return this.setState({
+      timerLabel: this.state.timerLabel === 'Session' ? 'Break' : 'Session',
+      minutes: this.state.timerLabel === 'Session' ? this.state.breakLen : this.state.sessionLen,
+      }); 
+  }
+  if (this.state.seconds === 0)
+    return this.setState({
+        minutes: this.state.minutes - 1,
+        seconds: 59,
+      });
+    
+  return this.setState({seconds: this.state.seconds - 1,})}
+
+  
+  render() {  
+    return (
+      <div className="container">
+        <h1 id="clock-label">25+5 Clock</h1>
+          <div className="breakLength" >
+            <button id="break-decrement" onClick={this.breakDec}>
+              <i className="fas fa-minus" />
+            </button>
+            <h2 id="break-label">Break Length</h2>
+            <h1 id="break-length">{this.state.breakLen}  </h1>
+            <button id="break-increment" onClick={this.breakInc}>
+              <i className="fas fa-plus" />
+            </button>
+          </div>
+
+          <div className="sessionLength" >
+            <button id="session-decrement" onClick={this.sessionDec}>
+              <i className="fas fa-minus" />
+            </button>
+            <h2 id="session-label">Session Length</h2>
+            <h1 id="session-length">{this.state.sessionLen}</h1>
+            <button id="session-increment" onClick={this.sessionInc}>
+              <i className="fas fa-plus" />
+            </button>
+          </div>
+        <div className="timerLabel">
+          <h1 id="timer-label">{this.state.timerLabel}</h1>
+          <span className="time-left" id="time-left">{`${this.state.minutes < 10 ? '0' + this.state.minutes : this.state.minutes}:${this.state.seconds < 10 ? '0' +     this.state.seconds : this.state.seconds}`}</span>
+        </div>
+        <div className="controls">
+          <button id="start_stop" onClick={this.state.isRunning ? this.stop : this.start}>
+            <i className={`fas fa-${this.state.isRunning ? "pause" : "play"}`} />
+          </button>
+          <button id="reset" onClick={this.reset}>
+            <i className="fas fa-sync" />
+          </button>
+        </div>
+        <audio id="beep" src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"/>
+      </div>
+    )
+  }
+}
+
+ReactDOM.render(<Clock />, document.getElementById("app"));
+
+
+
+
+
