@@ -1,0 +1,34 @@
+#quote-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+}
+
+#text {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#author {
+  margin-top: 10px;
+  font-style: italic;
+}
+
+#new-quote {
+  margin-top: 20px;
+}
+
+#tweet-quote {
+  margin-top: 10px;
+}
+
+.footer {
+    width: 450px;
+    text-align: center;
+    display: block;
+    margin: 15px auto 30px auto;
+    font-size: 0.8em;
+    color: #fff;
