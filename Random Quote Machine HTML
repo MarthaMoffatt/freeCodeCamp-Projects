@@ -1,0 +1,23 @@
+<div id="wrapper">
+  <div id="quote-box" class="text-center">
+    <div id="quote-text">
+    <i class="fa fa-quote-left"></i>
+    <span id="text"></span>
+    <i class="fa fa-quote-right"></i>
+  </div>
+  <div id="author"></div>
+  <div class="buttons">
+    <a id="tweet-quote" title="Tweet this quote!" target="_top" class="btn btn-secondary"
+    target="_blank"
+    rel="noopener noreferrer">
+            <i class="fa fa-twitter"></i>
+    Tweet Quote
+  </a>
+    <button id="new-quote" class="btn btn-primary">New Quote</button>
+  
+</div>
+</div>
+  <div class="footer">
+    <a href="https://codepen.io/MarthaMoffatt">By MarthaMoffatt</a>
+  </div>
+ 
