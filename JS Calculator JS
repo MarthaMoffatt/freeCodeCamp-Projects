@@ -1,0 +1,148 @@
+import ReactDOM from 'https://esm.sh/react-dom@18.2.0'
+import React from 'https://esm.sh/react@18.2.0'
+
+class Calculator extends React.Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            currentValue : "0",
+            display : "",
+        }
+        this.clear = this.clear.bind(this);
+        this.handleInput = this.handleInput.bind(this);
+        this.handleCalculation = this.handleCalculation.bind(this);
+        this.answer = this.answer.bind(this)
+    }
+    clear(){
+        this.setState({
+            currentValue : "0",
+            display : "",
+        })
+    }
+    handleInput(e){
+        let userInput = e.target.innerText;
+        if(this.state.currentValue === "0"){
+            this.setState(prevVal =>{
+                return{
+                    currentValue : userInput,
+                    display : prevVal.display + userInput
+                }
+            })
+        }else if(this.state.currentValue==="."){
+            this.setState(prevVal =>{
+                return{
+                    currentValue: prevVal.display + userInput,
+                    display : prevVal.display + userInput
+                }
+            })
+        }else{
+            this.setState(prevVal => {
+                return {
+                    currentValue: prevVal.currentValue + userInput,
+                    display : prevVal.display + userInput
+                }
+            })
+        }
+    }
+    handleCalculation(e){
+        let userInput = e.target.innerText==="x"? "*": e.target.innerText;
+        if(this.state.currentValue !== "."){
+            this.setState(prevVal => {
+                return {
+                    currentValue : userInput,
+                    display : prevVal.display + userInput
+                }
+            })
+        }
+        if(userInput ==="-" && this.state.currentValue==="-"){
+            let negSol= this.state.display.slice(0,-1)+"+"
+            this.setState({
+                currentValue: userInput,
+                display : negSol,
+            })
+        }
+        if((userInput === "+" || userInput ==="*" || userInput ==="/") &&(this.state.currentValue === "+" || this.state.currentValue ==="*" || this.state.currentValue ==="/")){       
+            let newSol = this.state.display.slice(0,-1) + userInput;
+            this.setState(prevVal=>{
+                return{
+                    currentValue : userInput,
+                    display : newSol,
+                }  
+            })
+        }
+        if(this.state.display.length>1){
+            let propSol = this.state.display.slice(-2);
+            if(propSol ==="*-" || propSol ==="/-"){        
+                let result = this.state.display.slice(0,-2)
+                this.setState({
+                    currentValue : userInput,
+                    display : result + userInput
+                })
+            }else if(userInput==="." && this.state.display.slice(-2)[0]==="."){
+                let finalSol = this.state.display
+                this.setState(prevVal=>{
+                    return{
+                        currentValue: finalSol,
+                        display: finalSol
+                    }
+                })
+            }
+        }   
+    }
+    answer(){
+        let err = this.state.display.slice(-1);
+        let other = this.state.display.slice(-2)
+        if (err ==="." || other===".0"){
+            let decimalSol = eval(this.state.display).toFixed(1);
+            this.setState({
+                display: decimalSol,
+                currentValue: decimalSol  
+            })
+        }else if(err ==="-" || err==="*" || err==="/"|| err==="+" ){
+            let noerr = this.state.display.slice(0,-1);
+ 
+            this.setState({
+                display: eval(noerr),
+                currentValue: eval(noerr)
+            })
+        }else{
+            this.setState({
+                display: eval(this.state.display),
+                currentValue: eval(this.state.display)
+            })
+        }     
+    }
+  
+ render(){
+        return(
+          <div className='calculator' id="calculator">
+            <div className='display'>
+              <h2 id="display">{this.state.currentValue}</h2>
+              <h3>{this.state.display}</h3>
+            </div>
+            <div className='buttonPad'>
+                <div className='button' id="clear" onClick={this.clear} >AC</div>
+                <div className='button' id="divide" onClick={this.handleCalculation} >/</div>
+                <div className='button' id="multiply" onClick={this.handleCalculation} >x</div>
+              <div className='button' id="nine" onClick={this.handleInput}>9</div>
+              <div className='button' id="eight" onClick={this.handleInput} >8</div>
+              <div className='button' id="seven" onClick={this.handleInput} >7</div>
+                <div className='button' id="add" onClick={this.handleCalculation} >+</div>
+              <div className='button' id="six" onClick={this.handleInput} >6</div>
+              <div className='button' id="five" onClick={this.handleInput} >5</div>
+                <div className='button' id="four" onClick={this.handleInput} >4</div>
+                <div className='button' id="subtract" onClick={this.handleCalculation} >-</div>
+              <div className='button' id="three" onClick={this.handleInput} >3</div>
+              <div className='button' id="two" onClick={this.handleInput} >2</div>
+              <div className='button' id="one" onClick={this.handleInput} >1</div>
+                <div className='button' id="zero"  onClick={this.handleInput} >0</div>
+                <div className='button' id="decimal" onClick={this.handleCalculation} >.</div>
+                <div className='button' id="equals" onClick={this.answer} >=</div>
+            </div> 
+
+        </div>)
+  }
+}
+
+ReactDOM.render(<Calculator/>,document.getElementById("main"));
+  
