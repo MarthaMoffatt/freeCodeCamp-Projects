@@ -1,0 +1,15 @@
+function fetchQuote() {
+  fetch('https://api.quotable.io/random')
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('text').textContent = data.content;
+      document.getElementById('author').textContent = '- ' + data.author;
+      document.getElementById('tweet-quote').href =
+        'https://twitter.com/intent/tweet?text=' +
+        encodeURIComponent('"' + data.content + '" -- ' + data.author);
+    });
+}
+
+document.getElementById('new-quote').addEventListener('click', fetchQuote);
+
+fetchQuote(); // Fetch and display initial quote
