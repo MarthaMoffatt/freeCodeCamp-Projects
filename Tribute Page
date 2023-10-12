@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Martha Kilala Moffatt</title>
+    <link rel="stylesheet" href="styles.css">
+    </head>
+    <main id="main">
+      <h1 id="title">Martha Kilala Moffatt </h1>
+      <p class="intro"> <em>The girl who learnt coding on her own</em></p>
+      <figure id="img-div">
+        <img id="image" scr="https://www.google.com/search?rlz=1C1ONGR_enUS1003US1003&sxsrf=APwXEddp0bamkhyiXALQKe3L3rHYZ0jpYg:1684537165925&q=martha+kilala&tbm=isch&sa=X&ved=2ahUKEwij2Ir7vYL_AhU7l2oFHUQ7Ac0Q0pQJegQICxAB&biw=1280&bih=601&dpr=1.5#imgrc=GQAA_0v1aTI6OM" alt="Picture of martha smiling"/>
+        <figcaption id="img-caption">Ah, look at how beautiful she is <3</figcaption>
+      <h2 id="tribute-info"> Let's say some nice things about Martha here:</h2>
+      <ul>
+        <li><strong>Point 1</strong>-She is so funny</li>
+        <li><strong>Point 2</strong>-She is so strong</li>
+        <li><strong>Point 3</strong>-She is so smart</li>
+        <li><strong>Point 4</strong>-She is so beautiful</li>
+        <li><strong>Point 5</strong>-She is so caring</li>
+        <li><strong>Point 6</strong>-She is so awesome</li>
+        
+        </ul>
+        <p class="quote"> "To be so modest is truly a rare trait."</p>
+        <p class="quote-by"><em>-- Martha Moffatt</em></p>
+      <p> If you wanna know more <a id="tribute-link" target="_blank" href="https://www.marketscreener.com/business-leaders/Kilala-Tilaar-0NPP8G-E/biography/"> click here</a>
