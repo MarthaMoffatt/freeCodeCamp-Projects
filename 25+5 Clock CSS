@@ -1,0 +1,55 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  text-align: center;
+  background-color: DarkCyan;
+  color: white;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.timerLabel {
+  margin-top: 0px;
+  margin-bottom: 40px;
+  display: inline-block;
+  margin-top: 0px;
+  text-align: center;
+  width: 480px;
+}
+
+
+ .breakLength,.sessionLength{
+    height: 140px;
+  width: 235px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 5px;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+i {
+  font-size: 32px;
+  background-color: Black;
+  color:white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+
+ .time-left {
+   border-style: solid;
+   margin: 15px;
+   font-size: 50px;
+   border-radius: 30px;
+   padding:10px
+}
