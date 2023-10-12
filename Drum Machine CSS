@@ -1,0 +1,145 @@
+#root {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  background-color: LightYellow;
+}
+
+.container {
+  width: 300px;
+  height: 200px;
+  padding: 20px;
+  border-radius: 100px;
+  background: LightBlue;
+  display: flex;
+  place-content: space-between;
+  align-items: center;
+}
+
+.buttons {
+  padding:20px;
+  width: 100%;
+  height: 50%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  
+  
+}
+
+.drum-pad {
+  display: grid;
+  place-content: center;
+  background: lightgreen;
+  font-size: 1.5rem;
+  font-weight: 1000;
+  cursor: pointer;
+  transition: 500ms ease-in-out;
+  border-radius:100px;
+  border: 1px solid black
+}
+
+.powerOn > div.active {
+  background: grey;
+  color: Black;
+}
+
+.inputs {
+  height: 10%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  place-content: space-around;
+  align-items: center;
+}
+
+input {
+  display: block;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+label {
+  padding-left: 17px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+input[type="range"]::-webkit-slider-thumb,
+input[type="range"]::-moz-range-thumb {
+  -webkit-appearance: none;
+  border: none;
+}
+
+.volume {
+  width: 70px;
+  height: 5%;
+  padding: 20px;
+  background: white;
+  border-radius: 100px;
+}
+
+.volume::-webkit-slider-runnable-track {
+  height: 10px;
+  border-radius: 100px;
+  box-shadow: inset 1px 1px 2px white, inset 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.volume::-moz-range-track {
+  height: 10px;
+  border-radius: 50px;
+  box-shadow: inset 2px 2px 8px white, inset 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.volume::-webkit-slider-thumb {
+  appearance:none;
+  margin-top: -10px;
+  width: 30px;
+  height: 30px;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.volume::-moz-range-thumb {
+  width: 30px;
+  height: 30px;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.toggleBody {
+  position: relative;
+  width: 65px;
+  height: 20px;
+  display: grid;
+  place-content: center;
+  background: white;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+span {
+  position: absolute;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  border-radius: 50%;
+  transition: 1s;
+}
+
+input.toggle:checked ~ span {
+  left: 45px;
+}
+
+.display {
+  width: 100px;
+  height: 50px;
+  margin-left: 20px;
+  padding-top: 5px;
+  color: white;
+  text-align: center;
+  font-size: 1.rem;
+  background: black;
+  border-radius: 100px;
+}
